@@ -4,9 +4,10 @@
 
 A premium landing page built for the **Acdyon Technologies Frontend Challenge**.
 
-## 🚀 Live Demo
+## 🚀 Repository & Live Demo
 
-[View Live Site →](https://pulse-landing.vercel.app) *(deploy URL TBD)*
+- **GitHub Repository**: [https://github.com/MS134340/pulse-landing](https://github.com/MS134340/pulse-landing)
+- **Local Dev Server**: `http://localhost:4321`
 
 ## ✨ Highlights
 
