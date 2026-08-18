@@ -1,0 +1,114 @@
+---
+// HowItWorks.astro
+---
+<section id="how-it-works" class="section bg-secondary">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">HOW IT WORKS</span>
+      <h2>Up and running in three steps</h2>
+    </div>
+
+    <div class="steps-flow reveal-stagger">
+      <div class="step reveal">
+        <div class="step-number">01</div>
+        <h3>Connect Your APIs</h3>
+        <p>Point Pulse at your endpoints. Add a URL, set check frequency, done. No SDK, no code changes, no agents to install.</p>
+      </div>
+
+      <div class="connector desktop-only"></div>
+
+      <div class="step reveal">
+        <div class="step-number">02</div>
+        <h3>We Monitor 24/7</h3>
+        <p>Pulse checks your endpoints from multiple regions every 30 seconds. We track response time, status codes, SSL, and content.</p>
+      </div>
+
+      <div class="connector desktop-only"></div>
+
+      <div class="step reveal">
+        <div class="step-number">03</div>
+        <h3>Get Alerted Instantly</h3>
+        <p>When something breaks, your team knows within seconds. Alerts route to the right people with full context — not just a status code.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bg-secondary {
+    background-color: var(--color-bg-secondary);
+  }
+  .section {
+    padding: 96px 0;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 16px;
+  }
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.035em;
+    color: var(--color-text-primary);
+    text-wrap: balance;
+  }
+  .steps-flow {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+    align-items: center;
+  }
+  .step {
+    text-align: center;
+    max-width: 300px;
+  }
+  .step-number {
+    font-family: var(--font-mono, monospace);
+    font-size: 3rem;
+    color: var(--color-accent);
+    opacity: 0.5;
+    margin-bottom: 16px;
+  }
+  .step h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: 12px;
+  }
+  .step p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+  .connector {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    .steps-flow {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 24px;
+    }
+    .connector {
+      display: block;
+      flex-grow: 1;
+      height: 1px;
+      border-top: 2px dashed var(--color-border);
+      margin-top: 48px;
+      opacity: 0.5;
+    }
+  }
+</style>

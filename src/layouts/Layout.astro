@@ -1,0 +1,101 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Pulse — API Health Monitoring for Teams',
+  description = 'Know when your APIs break before your users do. Real-time monitoring, instant alerts, and team dashboards. Launching soon.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Preconnect to font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <title>{title}</title>
+
+    <!-- Zero-FOUC: Apply theme before paint -->
+    <script is:inline>
+      (function() {
+        const stored = localStorage.getItem('pulse-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const theme = stored || (prefersDark ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+  </head>
+  <body>
+    <slot />
+
+    <!-- Scroll reveal observer -->
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Scroll reveal
+        const observer = new IntersectionObserver(
+          function(entries) {
+            entries.forEach(function(entry) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
+        );
+
+        document.querySelectorAll('.reveal').forEach(function(el) {
+          observer.observe(el);
+        });
+
+        // Konami Code Easter Egg
+        var konamiCode = [38,38,40,40,37,39,37,39,66,65];
+        var konamiIndex = 0;
+        document.addEventListener('keydown', function(e) {
+          if (e.keyCode === konamiCode[konamiIndex]) {
+            konamiIndex++;
+            if (konamiIndex === konamiCode.length) {
+              konamiIndex = 0;
+              showEasterEgg();
+            }
+          } else {
+            konamiIndex = 0;
+          }
+        });
+
+        function showEasterEgg() {
+          var toast = document.createElement('div');
+          toast.innerHTML = '🎉 You found the easter egg! Nice keyboard skills.';
+          toast.style.cssText = 'position:fixed;bottom:2rem;left:50%;transform:translateX(-50%);background:var(--color-accent);color:#fff;padding:1rem 2rem;border-radius:12px;font-weight:600;font-size:0.9rem;z-index:10000;animation:fade-in-up 0.4s var(--ease-out-expo);box-shadow:0 8px 32px rgba(99,102,241,0.4);';
+          document.body.appendChild(toast);
+
+          // Spin the logo
+          var logo = document.querySelector('.logo-icon');
+          if (logo) {
+            logo.style.transition = 'transform 0.8s var(--ease-out-expo)';
+            logo.style.transform = 'rotate(720deg)';
+            setTimeout(function() { logo.style.transform = ''; }, 1000);
+          }
+
+          setTimeout(function() {
+            toast.style.opacity = '0';
+            toast.style.transition = 'opacity 0.3s';
+            setTimeout(function() { toast.remove(); }, 300);
+          }, 3000);
+        }
+      });
+    </script>
+  </body>
+</html>

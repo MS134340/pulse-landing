@@ -1,0 +1,230 @@
+---
+---
+<header id="navbar">
+  <div class="nav-container">
+    <a href="/" class="logo">
+      <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-opacity="0.2" />
+        <path d="M4 12h4l2-4 4 8 2-4h4" stroke="var(--color-accent)" stroke-linejoin="round" />
+        <circle cx="12" cy="12" r="2" fill="var(--color-accent)" class="pulse-dot" />
+      </svg>
+      <span class="logo-text">Pulse</span>
+    </a>
+    
+    <nav class="desktop-nav">
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#pricing">Pricing</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button id="theme-toggle" aria-label="Toggle Dark Mode">
+        <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+        <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+      </button>
+      <a href="#waitlist" class="btn btn-primary desktop-only">Get Early Access</a>
+      <button id="mobile-menu-toggle" aria-label="Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+      </button>
+    </div>
+  </div>
+  
+  <div class="mobile-menu">
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#how-it-works">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#waitlist" class="btn btn-primary">Get Early Access</a>
+    </nav>
+  </div>
+</header>
+
+<style>
+  header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: var(--nav-height, 64px);
+    z-index: 100;
+    transition: background-color 0.3s cubic-bezier(0.16, 1, 0.3, 1), backdrop-filter 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  header.scrolled {
+    background-color: color-mix(in srgb, var(--color-bg-primary) 85%, transparent);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: var(--max-width, 1200px);
+    margin: 0 auto;
+    padding: 0 24px;
+    height: 100%;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--color-text-primary);
+    font-weight: 600;
+    font-size: 1.125rem;
+    letter-spacing: -0.035em;
+  }
+
+  @keyframes pulse-anim {
+    0% { transform: scale(0.95); opacity: 1; }
+    50% { transform: scale(1.5); opacity: 0.5; }
+    100% { transform: scale(0.95); opacity: 1; }
+  }
+
+  .pulse-dot {
+    transform-origin: center;
+    animation: pulse-anim 2s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+  }
+
+  .desktop-nav {
+    display: none;
+    gap: 32px;
+  }
+
+  .desktop-nav a {
+    text-decoration: none;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .desktop-nav a:hover {
+    color: var(--color-text-primary);
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  #theme-toggle {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: color 0.2s, background-color 0.2s;
+  }
+
+  #theme-toggle:hover {
+    color: var(--color-text-primary);
+    background-color: var(--color-bg-card);
+  }
+
+  html[data-theme='dark'] .sun-icon { display: block; }
+  html[data-theme='dark'] .moon-icon { display: none; }
+  html[data-theme='light'] .sun-icon { display: none; }
+  html[data-theme='light'] .moon-icon { display: block; }
+
+  .desktop-only { display: none; }
+
+  #mobile-menu-toggle {
+    background: none;
+    border: none;
+    color: var(--color-text-primary);
+    cursor: pointer;
+    padding: 8px;
+  }
+
+  .mobile-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--color-bg-primary);
+    border-bottom: 1px solid var(--color-border);
+    padding: 24px;
+    display: none;
+    flex-direction: column;
+  }
+
+  .mobile-menu.open {
+    display: flex;
+  }
+
+  .mobile-menu nav {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mobile-menu a {
+    text-decoration: none;
+    color: var(--color-text-primary);
+    font-weight: 500;
+    font-size: 1.125rem;
+  }
+
+  @media (min-width: 768px) {
+    .desktop-nav { display: flex; }
+    .desktop-only { display: inline-flex; }
+    #mobile-menu-toggle { display: none; }
+    .mobile-menu { display: none !important; }
+  }
+</style>
+
+<script>
+  // Theme toggle
+  const themeToggle = document.getElementById('theme-toggle');
+  
+  function updateTheme(theme) {
+    document.documentElement.setAttribute('data-theme', theme);
+    localStorage.setItem('pulse-theme', theme);
+  }
+
+  themeToggle?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    updateTheme(newTheme);
+  });
+
+  // Mobile menu
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
+
+  mobileToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('open');
+  });
+
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.remove('open');
+    });
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      mobileMenu?.classList.remove('open');
+    }
+  });
+
+  // Sticky scroll
+  const header = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 10) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  }, { passive: true });
+</script>

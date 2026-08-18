@@ -1,0 +1,189 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="footer-brand">
+        <a href="/" class="footer-logo" aria-label="Pulse home">
+          <svg class="logo-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="10" stroke="var(--color-accent)" stroke-width="2"/>
+            <polyline points="6,12 9,12 11,8 13,16 15,12 18,12" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          <span class="footer-brand-text">Pulse</span>
+        </a>
+        <p class="footer-tagline">Real-time API health monitoring for teams that ship fast.</p>
+      </div>
+
+      <!-- Links -->
+      <div class="footer-links">
+        <div class="footer-col">
+          <h4 class="footer-heading">Product</h4>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#waitlist">Get Early Access</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-heading">Resources</h4>
+          <ul>
+            <li><a href="#" aria-label="Documentation (coming soon)">Docs</a></li>
+            <li><a href="#" aria-label="Changelog (coming soon)">Changelog</a></li>
+            <li><a href="#" aria-label="Status page (coming soon)">Status</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="footer-bottom">
+      <p class="footer-meta">
+        &copy; {currentYear} Pulse. Built for the
+        <a href="https://acdyon.com" target="_blank" rel="noopener noreferrer">Acdyon Technologies</a>
+        Frontend Challenge.
+      </p>
+      <div class="footer-social">
+        <!-- GitHub -->
+        <a href="#" class="social-link" aria-label="GitHub">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+          </svg>
+        </a>
+        <!-- Twitter / X -->
+        <a href="#" class="social-link" aria-label="Twitter">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 4l11.733 16h4.267l-11.733 -16z"/>
+            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: clamp(3rem, 2rem + 4vw, 5rem) 0 clamp(1.5rem, 1rem + 2vw, 2.5rem);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.625rem;
+    text-decoration: none;
+    margin-bottom: 0.75rem;
+  }
+
+  .footer-brand-text {
+    font-size: var(--font-size-lg);
+    font-weight: 700;
+    color: var(--color-text-primary);
+    letter-spacing: -0.02em;
+  }
+
+  .footer-tagline {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-muted);
+    max-width: 280px;
+    line-height: 1.5;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 3rem;
+  }
+
+  .footer-heading {
+    font-size: var(--font-size-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--color-text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .footer-col a {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    transition: color var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .footer-col a:hover {
+    color: var(--color-text-primary);
+  }
+
+  .footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-meta {
+    font-size: var(--font-size-xs);
+    color: var(--color-text-muted);
+  }
+
+  .footer-meta a {
+    color: var(--color-text-secondary);
+  }
+
+  .footer-meta a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-social {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    color: var(--color-text-muted);
+    transition: all var(--duration-fast) var(--ease-out-expo);
+  }
+
+  .social-link:hover {
+    color: var(--color-text-primary);
+    background: var(--color-accent-subtle);
+  }
+
+  /* Mobile */
+  @media (max-width: 640px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 1rem;
+      text-align: center;
+    }
+  }
+</style>

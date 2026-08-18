@@ -1,0 +1,106 @@
+---
+// ProblemSection.astro
+---
+<section id="problem" class="section bg-secondary">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">THE PROBLEM</span>
+      <h2>Your users shouldn't be your error monitoring</h2>
+      <p class="subtext">Most teams find out about API failures from angry customers, not their monitoring tools. By then, the damage is done.</p>
+    </div>
+
+    <div class="problem-grid reveal-stagger">
+      <div class="card reveal">
+        <div class="card-icon">🔔</div>
+        <h3>Alert Fatigue</h3>
+        <p>Drowning in noise from tools that cry wolf. When everything is critical, nothing is.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🕐</div>
+        <h3>Slow Detection</h3>
+        <p>Minutes between failure and detection. Your users feel it before your dashboards show it.</p>
+      </div>
+      <div class="card reveal">
+        <div class="card-icon">🧩</div>
+        <h3>Scattered Tooling</h3>
+        <p>Status page here, logs there, metrics somewhere else. No single source of truth for API health.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .bg-secondary {
+    background-color: var(--color-bg-secondary);
+  }
+  .section {
+    padding: 64px 0;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .section-header {
+    text-align: center;
+    margin-bottom: 64px;
+  }
+  .eyebrow {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-accent);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 16px;
+  }
+  h2 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    letter-spacing: -0.035em;
+    color: var(--color-text-primary);
+    margin-bottom: 24px;
+    text-wrap: balance;
+  }
+  .subtext {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  @media (min-width: 768px) {
+    .problem-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 32px;
+    box-shadow: inset 0 1px 0 var(--card-highlight), var(--shadow-sm);
+    transition: transform var(--duration-normal) var(--ease-out-expo), box-shadow var(--duration-normal) var(--ease-out-expo), border-color var(--duration-normal) var(--ease-out-expo);
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: inset 0 1px 0 var(--card-highlight), var(--shadow-md);
+    border-color: var(--color-border-hover);
+  }
+  .card-icon {
+    font-size: 2rem;
+    margin-bottom: 24px;
+  }
+  .card h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-primary);
+    margin-bottom: 12px;
+  }
+  .card p {
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+</style>
