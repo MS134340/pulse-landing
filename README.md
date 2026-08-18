@@ -69,16 +69,6 @@ npm run build
 # Preview production build
 npm run preview
 ```
-
-## 📋 Assessment Checklist
-
-- [x] Hero section with clear value prop and strong CTA
-- [x] Section that **shows** the product (mock dashboard, not just claims)
-- [x] Motion/micro-interaction that earns its keep (sparkline animation)
-- [x] Working at 390px mobile and 1440px desktop
-- [x] Real dark-mode support (all-or-nothing)
-- [x] No fabricated testimonials, fake user counts, or fake logos
-- [x] DECISIONS.md (1 page max)
 - [x] Easter egg (Konami code)
 
 ---
