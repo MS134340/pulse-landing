@@ -73,4 +73,3 @@ npm run preview
 
 ---
 
-*Built with care for the Acdyon Technologies Frontend Challenge.*
