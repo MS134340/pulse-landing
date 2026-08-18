@@ -5,13 +5,13 @@
 **Chosen:** Astro (static site generator) + vanilla CSS custom properties + minimal vanilla JS  
 **Rejected:** React SPA with a component library (e.g., Next.js + shadcn/ui)
 
-A landing page has one job: load fast and convert. React ships a JavaScript runtime to the browser for interactivity the page doesn't need — every section here is static HTML/CSS with two small scripts (theme toggle + scroll reveal). Astro compiles to zero-JS static HTML by default, which means:
+A landing page has one job: load fast and convert. React ships a JavaScript runtime to the browser for interactivity the page doesn't need every section here is static HTML/CSS with two small scripts (theme toggle + scroll reveal). Astro compiles to zero-JS static HTML by default, which means:
 
 - **~0 KB of framework JS shipped** (vs. ~80KB+ for React)
 - Lighthouse Performance score stays above 95 without heroic optimization
-- No hydration delay — the page is interactive on first paint
+- No hydration delay, the page is interactive on first paint
 
-I also rejected using Tailwind utility classes exclusively for styling. While Tailwind handles layout and spacing well, the premium "shipped" details — layered `box-shadow` with inner specular highlights, `radial-gradient` spotlight effects on mouse-move, SVG sparkline animations — require custom CSS that would be unreadable as utility strings. I used CSS custom properties as the design-system backbone (colors, typography, spacing, animation curves) and scoped `<style>` blocks per component for everything else.
+I also rejected using Tailwind utility classes exclusively for styling. While Tailwind handles layout and spacing well, the premium "shipped" details layered `box-shadow` with inner specular highlights, `radial-gradient` spotlight effects on mouse-move, SVG sparkline animations require custom CSS that would be unreadable as utility strings. I used CSS custom properties as the design-system backbone (colors, typography, spacing, animation curves) and scoped `<style>` blocks per component for everything else.
 
 The product concept ("Pulse" as a pre-launch API monitor) was chosen specifically to solve the honesty constraint. A pre-launch waitlist page doesn't need fake testimonials, fabricated user counts, or borrowed logos. "Join the Waitlist" and "Launching Soon" are true statements, not marketing fiction.
 
